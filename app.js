@@ -392,7 +392,7 @@ let currentTaskName = '';
 // Start task timer
 function startTaskTimer(taskTitle, duration) {
     // Stop any existing timer
-    stopFloatingTimer();
+    stopTimer();
 
     // Parse duration (e.g., "10 minutes" -> 600 seconds)
     const minutes = parseInt(duration) || 10;
@@ -400,13 +400,11 @@ function startTaskTimer(taskTitle, duration) {
     taskTimerPaused = false;
     currentTaskName = taskTitle;
 
-    // Show floating timer
-    const floatingTimer = document.getElementById('floatingTimer');
-    floatingTimer.classList.add('active');
-
-    // Update task name
-    document.getElementById('floatingTimerTask').textContent = taskTitle;
-    document.getElementById('floatingTimerTitle').textContent = `${minutes}-Minute Timer`;
+    // Show inline timer in Task Focus Overlay
+    const inlineTimer = document.getElementById('inlineTimer');
+    if (inlineTimer) {
+        inlineTimer.classList.add('active');
+    }
 
     // Update display
     updateTaskTimerDisplay();
@@ -422,7 +420,9 @@ function startTaskTimer(taskTitle, duration) {
                 timerComplete();
             } else if (taskTimerSeconds <= 10) {
                 // Add pulse animation in last 10 seconds
-                floatingTimer.classList.add('pulse');
+                if (inlineTimer) {
+                    inlineTimer.classList.add('pulse');
+                }
             }
         }
     }, 1000);
@@ -432,20 +432,27 @@ function startTaskTimer(taskTitle, duration) {
 function updateTaskTimerDisplay() {
     const minutes = Math.floor(taskTimerSeconds / 60);
     const seconds = taskTimerSeconds % 60;
-    document.getElementById('floatingTimerDisplay').textContent =
-        `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    const display = document.getElementById('inlineTimerDisplay');
+    if (display) {
+        display.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    }
 }
 
 // Timer complete
 function timerComplete() {
     clearInterval(taskTimerInterval);
 
-    const floatingTimer = document.getElementById('floatingTimer');
-    floatingTimer.classList.remove('pulse');
+    const inlineTimer = document.getElementById('inlineTimer');
+    if (inlineTimer) {
+        inlineTimer.classList.remove('pulse');
+        inlineTimer.classList.add('complete');
+    }
 
     // Update display
-    document.getElementById('floatingTimerDisplay').textContent = '0:00';
-    document.getElementById('floatingTimerTask').textContent = '✨ Time\'s up! Great work!';
+    const display = document.getElementById('inlineTimerDisplay');
+    if (display) {
+        display.textContent = '0:00 - Done!';
+    }
 
     // Play sound if enabled
     const audioToggle = document.getElementById('audioToggleTimer');
@@ -453,9 +460,9 @@ function timerComplete() {
         playTimerSound();
     }
 
-    // Auto-close after 5 seconds
+    // Auto-hide timer after 5 seconds
     setTimeout(() => {
-        stopFloatingTimer();
+        stopTimer();
     }, 5000);
 }
 
@@ -511,15 +518,23 @@ function togglePauseTimer() {
     }
 }
 
-// Stop floating timer
-function stopFloatingTimer() {
+// Stop timer
+function stopTimer() {
     clearInterval(taskTimerInterval);
     taskTimerInterval = null;
     taskTimerSeconds = 0;
     taskTimerPaused = false;
 
-    const floatingTimer = document.getElementById('floatingTimer');
-    floatingTimer.classList.remove('active', 'pulse');
+    const inlineTimer = document.getElementById('inlineTimer');
+    if (inlineTimer) {
+        inlineTimer.classList.remove('active', 'pulse', 'complete');
+    }
+
+    // Reset display
+    const display = document.getElementById('inlineTimerDisplay');
+    if (display) {
+        display.textContent = '10:00';
+    }
 
     // Reset pause button
     const btn = document.getElementById('pauseTimerBtn');
@@ -531,6 +546,11 @@ function stopFloatingTimer() {
             Pause
         `;
     }
+}
+
+// Alias for backward compatibility
+function stopFloatingTimer() {
+    stopTimer();
 }
 
 // ===================================

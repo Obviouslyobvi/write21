@@ -1244,6 +1244,130 @@ section {
     gap: var(--spacing-md);
 }
 
+/* ===================================
+   INLINE TIMER (in Task Focus Overlay)
+   =================================== */
+
+.inline-timer {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--color-bg-tertiary);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-lg);
+    animation: fadeInUp 0.3s ease-out;
+}
+
+.inline-timer.active {
+    display: flex;
+}
+
+.inline-timer.pulse .inline-timer-display {
+    animation: pulse 1s ease-in-out infinite;
+    color: var(--color-warning);
+}
+
+.inline-timer.complete {
+    border-color: var(--color-success);
+}
+
+.inline-timer.complete .inline-timer-display {
+    color: var(--color-success);
+}
+
+.inline-timer-display {
+    font-size: 2.5rem;
+    font-weight: 800;
+    font-family: 'Courier New', monospace;
+    color: var(--color-primary-light);
+    letter-spacing: 0.05em;
+}
+
+.inline-timer-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.inline-timer-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text-primary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.inline-timer-btn:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+}
+
+.inline-timer-btn.timer-stop:hover {
+    background: var(--color-warning);
+    border-color: var(--color-warning);
+}
+
+.inline-timer .audio-toggle {
+    margin-left: var(--spacing-xs);
+}
+
+.inline-timer .audio-toggle input {
+    display: none;
+}
+
+.inline-timer .audio-toggle label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    color: var(--color-text-tertiary);
+}
+
+.inline-timer .audio-toggle label:hover {
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
+}
+
+.inline-timer .audio-toggle input:checked + label {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+}
+
+.inline-timer .audio-toggle .audio-off {
+    display: block;
+}
+
+.inline-timer .audio-toggle .audio-on {
+    display: none;
+}
+
+.inline-timer .audio-toggle input:checked + label .audio-off {
+    display: none;
+}
+
+.inline-timer .audio-toggle input:checked + label .audio-on {
+    display: block;
+}
+
 .task-focus-body {
     flex: 1;
     padding: var(--spacing-xl);
@@ -1314,160 +1438,6 @@ section {
     box-shadow: var(--shadow-xl);
 }
 
-/* ===================================
-   FLOATING TIMER WIDGET REFINEMENTS
-   =================================== */
-
-.floating-timer-header-controls {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-}
-
-.audio-toggle.mini {
-    margin: 0;
-}
-
-.audio-toggle.mini label {
-    padding: 4px;
-    border: none;
-    background: transparent;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.audio-toggle.mini label:hover {
-    color: white;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.audio-toggle.mini input:checked+label {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-}
-}
-
-/* ===================================
-   FLOATING TIMER WIDGET
-   =================================== */
-
-.floating-timer {
-    position: fixed;
-    bottom: var(--spacing-lg);
-    right: var(--spacing-lg);
-    width: 320px;
-    background: var(--color-bg-card);
-    border: 2px solid var(--color-primary);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-xl);
-    z-index: 999;
-    display: none;
-    animation: slideInUp 0.3s ease-out;
-}
-
-.floating-timer.active {
-    display: block;
-}
-
-.floating-timer-header {
-    padding: var(--spacing-md);
-    background: var(--gradient-primary);
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-}
-
-.floating-timer-title {
-    font-weight: 600;
-    font-size: 0.9375rem;
-}
-
-.floating-timer-close {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    width: 28px;
-    height: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: all var(--transition-fast);
-}
-
-.floating-timer-close:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.floating-timer-display {
-    font-size: 3rem;
-    font-weight: 800;
-    font-family: 'Courier New', monospace;
-    color: var(--color-primary-light);
-    text-align: center;
-    padding: var(--spacing-lg);
-}
-
-.floating-timer.pulse .floating-timer-display {
-    animation: pulse 1s ease-in-out infinite;
-}
-
-.floating-timer-task {
-    text-align: center;
-    padding: 0 var(--spacing-md) var(--spacing-md);
-    color: var(--color-text-secondary);
-    font-size: 0.9375rem;
-}
-
-.floating-timer-controls {
-    display: flex;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-md);
-    border-top: 1px solid var(--color-border);
-}
-
-.timer-control-btn {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-xs);
-    padding: var(--spacing-sm);
-    background: var(--color-bg-secondary);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    color: var(--color-text-primary);
-    font-size: 0.875rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all var(--transition-base);
-}
-
-.timer-control-btn:hover {
-    background: var(--color-primary);
-    border-color: var(--color-primary);
-    color: white;
-}
-
-.timer-control-btn.timer-stop:hover {
-    background: var(--color-warning);
-    border-color: var(--color-warning);
-}
-
-@keyframes slideInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 /* ===================================
    WRITING WORKSPACE 

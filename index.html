@@ -286,66 +286,58 @@
         </div>
     </section>
 
-    <!-- Floating Timer Widget -->
-    <div class="floating-timer" id="floatingTimer">
-        <div class="floating-timer-header">
-            <span class="floating-timer-title" id="floatingTimerTitle">Task Timer</span>
-            <div class="floating-timer-header-controls">
-                <div class="audio-toggle mini">
-                    <input type="checkbox" id="audioToggleTimer" checked>
-                    <label for="audioToggleTimer" title="Sound Alerts">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" class="audio-on">
-                            <path d="M11 5L6 9H2v6h4l5 4V5zM15.54 8.46a5 5 0 010 7.07M19.07 4.93a10 10 0 010 14.14"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" class="audio-off">
-                            <path d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </label>
-                </div>
-                <button class="floating-timer-close" onclick="stopFloatingTimer()">×</button>
-            </div>
-        </div>
-
-        <!-- Task Focus Overlay -->
-        <div class="task-focus-overlay" id="taskFocusOverlay">
-            <div class="task-focus-content">
-                <button class="task-focus-close" onclick="closeTaskFocus()">×</button>
-                <div class="task-focus-header">
-                    <div class="task-focus-badge" id="focusTaskBadge">DAY 1 TASK</div>
-                    <h2 id="focusTaskTitle">Write your book title</h2>
-                    <div class="task-focus-timer-area" id="focusTimerArea"></div>
-                </div>
-                <div class="task-focus-body">
-                    <p id="focusTaskDescription">Description goes here...</p>
-                    <div class="task-focus-editor-container">
-                        <textarea id="focusTaskEditor" class="task-focus-editor"
-                            placeholder="Work on this specific task here..."></textarea>
+    <!-- Task Focus Overlay -->
+    <div class="task-focus-overlay" id="taskFocusOverlay">
+        <div class="task-focus-content">
+            <button class="task-focus-close" onclick="closeTaskFocus()">×</button>
+            <div class="task-focus-header">
+                <div class="task-focus-badge" id="focusTaskBadge">DAY 1 TASK</div>
+                <h2 id="focusTaskTitle">Write your book title</h2>
+                <div class="task-focus-timer-area" id="focusTimerArea"></div>
+                <!-- Inline Timer Display -->
+                <div class="inline-timer" id="inlineTimer">
+                    <div class="inline-timer-display" id="inlineTimerDisplay">10:00</div>
+                    <div class="inline-timer-controls">
+                        <button class="inline-timer-btn" id="pauseTimerBtn" onclick="togglePauseTimer()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M6 4h4v16H6V4zM14 4h4v16h-4V4z" fill="currentColor" />
+                            </svg>
+                            Pause
+                        </button>
+                        <button class="inline-timer-btn timer-stop" onclick="stopTimer()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <rect x="6" y="6" width="12" height="12" fill="currentColor" />
+                            </svg>
+                            Stop
+                        </button>
+                        <div class="audio-toggle">
+                            <input type="checkbox" id="audioToggleTimer" checked>
+                            <label for="audioToggleTimer" title="Sound Alerts">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="audio-on">
+                                    <path d="M11 5L6 9H2v6h4l5 4V5zM15.54 8.46a5 5 0 010 7.07M19.07 4.93a10 10 0 010 14.14"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="audio-off">
+                                    <path d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </label>
+                        </div>
                     </div>
                 </div>
-                <div class="task-focus-footer">
-                    <button class="focus-complete-btn" id="focusCompleteBtn" onclick="completeFocusedTask()">
-                        Mark Complete & Close
-                    </button>
+            </div>
+            <div class="task-focus-body">
+                <p id="focusTaskDescription">Description goes here...</p>
+                <div class="task-focus-editor-container">
+                    <textarea id="focusTaskEditor" class="task-focus-editor"
+                        placeholder="Work on this specific task here..."></textarea>
                 </div>
             </div>
-        </div>
-        <div class="floating-timer-display" id="floatingTimerDisplay">10:00</div>
-        <div class="floating-timer-task" id="floatingTimerTask">Writing task in progress...</div>
-        <div class="floating-timer-controls">
-            <button class="timer-control-btn" id="pauseTimerBtn" onclick="togglePauseTimer()">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M6 4h4v16H6V4zM14 4h4v16h-4V4z" fill="currentColor" />
-                </svg>
-                Pause
-            </button>
-            <button class="timer-control-btn timer-stop" onclick="stopFloatingTimer()">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <rect x="6" y="6" width="12" height="12" fill="currentColor" />
-                </svg>
-                Stop
-            </button>
+            <div class="task-focus-footer">
+                <button class="focus-complete-btn" id="focusCompleteBtn" onclick="completeFocusedTask()">
+                    Mark Complete & Close
+                </button>
+            </div>
         </div>
     </div>
 
