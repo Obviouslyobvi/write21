@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>21-Day Non-Fiction Book Writing Method - Interactive Guide</title>
+    <title>The 21 Day Author - How Anyone Can Publish a Book</title>
     <meta name="description"
-        content="Transform your non-fiction book idea into a complete manuscript in just 21 days using this proven methodology.">
+        content="How anyone can publish a book without robots or writing degrees. Transform your ideas into a complete manuscript in just 21 days.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -16,6 +16,55 @@
 </head>
 
 <body>
+    <!-- Project Selector -->
+    <div class="project-selector">
+        <button class="project-selector-btn" id="projectSelectorBtn" onclick="toggleProjectPanel()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="project-name" id="currentProjectName">My Book</span>
+            <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+
+        <div class="project-panel" id="projectPanel">
+            <div class="project-panel-header">
+                <h3>Your Projects</h3>
+                <button class="panel-close-btn" onclick="toggleProjectPanel()">×</button>
+            </div>
+            <div class="project-list" id="projectList">
+                <!-- Projects will be populated by JavaScript -->
+            </div>
+            <div class="project-panel-footer">
+                <button class="new-project-btn" onclick="showNewProjectDialog()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    New Project
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Project Dialog -->
+    <div class="dialog-overlay" id="newProjectDialog">
+        <div class="dialog">
+            <div class="dialog-header">
+                <h3>Create New Project</h3>
+                <button class="dialog-close" onclick="hideNewProjectDialog()">×</button>
+            </div>
+            <div class="dialog-body">
+                <label for="newProjectName">Project Name</label>
+                <input type="text" id="newProjectName" placeholder="Enter your book title..." maxlength="100">
+            </div>
+            <div class="dialog-footer">
+                <button class="dialog-btn cancel" onclick="hideNewProjectDialog()">Cancel</button>
+                <button class="dialog-btn create" onclick="createNewProject()">Create Project</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Theme Controls -->
     <div class="theme-controls">
         <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleThemePanel()" title="Customize Theme">
@@ -95,8 +144,8 @@
         <div class="container">
             <div class="hero-content">
                 <div class="badge">Write. Complete. Publish.</div>
-                <h1 class="hero-title">Write Your Non-Fiction Book in <span class="highlight">21 Days</span></h1>
-                <p class="hero-subtitle">A proven methodology to transform your ideas into a complete manuscript</p>
+                <h1 class="hero-title">The 21 Day Author</h1>
+                <p class="hero-subtitle">How Anyone Can Publish a Book Without Robots or Writing Degrees</p>
                 <div class="hero-stats">
                     <div class="stat-card">
                         <div class="stat-number" id="totalDays">21</div>
