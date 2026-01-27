@@ -236,14 +236,17 @@ body {
     visibility: hidden;
     transform: translateY(-10px);
     transition: all var(--transition-base);
-    display: flex;
+    display: none;
     flex-direction: column;
+    pointer-events: none;
 }
 
 .project-panel.active {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+    display: flex;
+    pointer-events: auto;
 }
 
 .project-panel-header {
