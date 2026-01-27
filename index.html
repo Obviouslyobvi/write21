@@ -27,7 +27,7 @@
 
         <div class="project-panel" id="projectPanel">
             <div class="project-panel-header">
-                <h3>Your Projects</h3>
+                <h3>Your Books</h3>
                 <button class="panel-close-btn" onclick="toggleProjectPanel()">×</button>
             </div>
             <div class="current-project-display">
@@ -42,26 +42,26 @@
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                         <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                     </svg>
-                    New Project
+                    New Book
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- New Project Dialog -->
+    <!-- New Book Dialog -->
     <div class="dialog-overlay" id="newProjectDialog">
         <div class="dialog">
             <div class="dialog-header">
-                <h3>Create New Project</h3>
+                <h3>Create New Book</h3>
                 <button class="dialog-close" onclick="hideNewProjectDialog()">×</button>
             </div>
             <div class="dialog-body">
-                <label for="newProjectName">Project Name</label>
+                <label for="newProjectName">Book Title</label>
                 <input type="text" id="newProjectName" placeholder="Enter your book title..." maxlength="100">
             </div>
             <div class="dialog-footer">
                 <button class="dialog-btn cancel" onclick="hideNewProjectDialog()">Cancel</button>
-                <button class="dialog-btn create" onclick="createNewProject()">Create Project</button>
+                <button class="dialog-btn create" onclick="createNewProject()">Create Book</button>
             </div>
         </div>
     </div>
