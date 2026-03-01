@@ -1,0 +1,16 @@
+# Cloudflare Pages Configuration
+# See: https://developers.cloudflare.com/pages/functions/wrangler-configuration/
+
+name = "nonfiction-blueprint"
+compatibility_date = "2024-12-01"
+
+# The directory containing your static assets
+# Cloudflare Pages serves files from public/ by default
+[site]
+bucket = "./public"
+
+# Environment variables (set these in Cloudflare Dashboard > Settings > Environment Variables)
+# STRIPE_SECRET_KEY = "sk_live_..."
+# STRIPE_WEBHOOK_SECRET = "whsec_..."
+# SUPABASE_URL = "https://your-project.supabase.co"
+# SUPABASE_SERVICE_ROLE_KEY = "eyJ..."

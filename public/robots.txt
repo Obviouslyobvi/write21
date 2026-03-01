@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /app.html
+Disallow: /login.html
+Disallow: /success.html
+Disallow: /thank-you.html
+Disallow: /preview.html
+Sitemap: https://nonfictionblueprint.com/sitemap.xml

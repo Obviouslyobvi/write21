@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In - Nonfiction Blueprint</title>
+  <meta name="robots" content="noindex">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
+  <style>
+    body {
+      background: var(--color-cream);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .auth-container {
+      max-width: 420px;
+      width: 100%;
+    }
+    .auth-logo {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .auth-logo a {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--color-dark);
+      text-decoration: none;
+    }
+    .auth-card {
+      background: var(--color-bg);
+      border-radius: var(--radius-xl);
+      padding: 40px 32px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .auth-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--color-dark);
+      margin-bottom: 8px;
+    }
+    .auth-subtitle {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      margin-bottom: 28px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 6px;
+    }
+    .form-input {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 15px;
+      font-family: var(--font-body);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-bg);
+      color: var(--color-text);
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .form-input:focus {
+      border-color: var(--color-primary);
+    }
+    .auth-button {
+      width: 100%;
+      padding: 16px;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: var(--font-body);
+      background: var(--color-primary);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: background 0.2s ease;
+      margin-top: 8px;
+    }
+    .auth-button:hover {
+      background: var(--color-primary-dark);
+    }
+    .auth-button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    .auth-toggle {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: var(--color-text-secondary);
+    }
+    .auth-toggle a {
+      color: var(--color-primary);
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .auth-error {
+      background: #fef2f2;
+      color: var(--color-error);
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      margin-bottom: 16px;
+      display: none;
+    }
+    .auth-success {
+      background: #f0fdf4;
+      color: var(--color-success);
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      margin-bottom: 16px;
+      display: none;
+    }
+    .back-link {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 13px;
+    }
+    .back-link a {
+      color: var(--color-text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-logo">
+      <a href="/">Nonfiction Blueprint</a>
+    </div>
+
+    <div class="auth-card">
+      <!-- Sign In Form -->
+      <div id="signInView">
+        <h1 class="auth-title">Welcome back</h1>
+        <p class="auth-subtitle">Sign in to continue your 21-day journey</p>
+
+        <div class="auth-error" id="signInError"></div>
+
+        <form id="signInForm">
+          <div class="form-group">
+            <label class="form-label" for="signInEmail">Email</label>
+            <input type="email" id="signInEmail" class="form-input" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="signInPassword">Password</label>
+            <input type="password" id="signInPassword" class="form-input" placeholder="Your password" required minlength="6">
+          </div>
+          <button type="submit" class="auth-button" id="signInBtn">Sign In</button>
+        </form>
+
+        <p class="auth-toggle">
+          Don't have an account? <a onclick="showSignUp()">Sign up</a>
+        </p>
+      </div>
+
+      <!-- Sign Up Form -->
+      <div id="signUpView" style="display: none;">
+        <h1 class="auth-title">Create your account</h1>
+        <p class="auth-subtitle">Start your 21-day book writing journey</p>
+
+        <div class="auth-error" id="signUpError"></div>
+        <div class="auth-success" id="signUpSuccess"></div>
+
+        <form id="signUpForm">
+          <div class="form-group">
+            <label class="form-label" for="signUpEmail">Email</label>
+            <input type="email" id="signUpEmail" class="form-input" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="signUpPassword">Password</label>
+            <input type="password" id="signUpPassword" class="form-input" placeholder="At least 6 characters" required minlength="6">
+          </div>
+          <button type="submit" class="auth-button" id="signUpBtn">Create Account</button>
+        </form>
+
+        <p class="auth-toggle">
+          Already have an account? <a onclick="showSignIn()">Sign in</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="back-link">
+      <a href="/">&larr; Back to Nonfiction Blueprint</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    // Initialize Supabase
+    initSupabase();
+
+    // Check if already logged in
+    (async () => {
+      const session = await getSession();
+      if (session) {
+        window.location.href = '/app.html';
+      }
+    })();
+
+    // Toggle views
+    function showSignUp() {
+      document.getElementById('signInView').style.display = 'none';
+      document.getElementById('signUpView').style.display = 'block';
+    }
+    function showSignIn() {
+      document.getElementById('signUpView').style.display = 'none';
+      document.getElementById('signInView').style.display = 'block';
+    }
+
+    // Sign In
+    document.getElementById('signInForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('signInBtn');
+      const errorEl = document.getElementById('signInError');
+      errorEl.style.display = 'none';
+      btn.disabled = true;
+      btn.textContent = 'Signing in...';
+
+      try {
+        const email = document.getElementById('signInEmail').value;
+        const password = document.getElementById('signInPassword').value;
+        await signIn(email, password);
+        window.location.href = '/app.html';
+      } catch (err) {
+        errorEl.textContent = err.message || 'Failed to sign in. Please try again.';
+        errorEl.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Sign In';
+      }
+    });
+
+    // Sign Up
+    document.getElementById('signUpForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('signUpBtn');
+      const errorEl = document.getElementById('signUpError');
+      const successEl = document.getElementById('signUpSuccess');
+      errorEl.style.display = 'none';
+      successEl.style.display = 'none';
+      btn.disabled = true;
+      btn.textContent = 'Creating account...';
+
+      try {
+        const email = document.getElementById('signUpEmail').value;
+        const password = document.getElementById('signUpPassword').value;
+        await signUp(email, password);
+        successEl.textContent = 'Account created! Check your email for a confirmation link, then sign in.';
+        successEl.style.display = 'block';
+        btn.textContent = 'Account Created';
+      } catch (err) {
+        errorEl.textContent = err.message || 'Failed to create account. Please try again.';
+        errorEl.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Create Account';
+      }
+    });
+  </script>
+</body>
+</html>

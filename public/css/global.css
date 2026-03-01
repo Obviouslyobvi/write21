@@ -1,0 +1,83 @@
+/* ===================================
+   GLOBAL DESIGN SYSTEM
+   Nonfiction Blueprint
+   =================================== */
+
+:root {
+  /* Brand Colors */
+  --color-primary: #8b7355;
+  --color-primary-dark: #7a6348;
+  --color-primary-light: #a08b6d;
+  --color-dark: #1a1a2e;
+  --color-dark-lighter: #2a2a3e;
+  --color-cream: #f5ebe0;
+  --color-cream-light: #f8f4ee;
+  --color-warm: #f0e6d3;
+
+  /* Neutral Colors */
+  --color-text: #1a1a2e;
+  --color-text-secondary: #666;
+  --color-text-muted: #999;
+  --color-border: #e8dfd2;
+  --color-border-light: #eee;
+  --color-bg: #fff;
+  --color-success: #22c55e;
+  --color-error: #ef4444;
+
+  /* Typography */
+  --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+}
+
+/* Reset */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  background: var(--color-bg);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Utility: screen-reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
