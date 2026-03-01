@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Day 1 Preview - Nonfiction Blueprint</title>
+  <title>Why Your Book Isn't Written Yet - Nonfiction Blueprint</title>
   <meta name="robots" content="noindex">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/global.css">
@@ -40,9 +40,9 @@
       text-decoration: none;
     }
     .preview-content {
-      max-width: 680px;
+      max-width: 640px;
       margin: 0 auto;
-      padding: 40px 24px 80px;
+      padding: 48px 24px 80px;
     }
     .preview-badge {
       display: inline-block;
@@ -58,77 +58,152 @@
       font-size: clamp(28px, 4vw, 38px);
       font-weight: 800;
       color: var(--color-dark);
-      margin-bottom: 12px;
+      line-height: 1.15;
+      margin-bottom: 20px;
     }
-    .preview-subtitle {
+    .preview-text {
       font-size: 17px;
       color: var(--color-text-secondary);
-      margin-bottom: 40px;
-      line-height: 1.7;
+      line-height: 1.8;
+      margin-bottom: 20px;
     }
-    .exercise-card {
+    .preview-text strong {
+      color: var(--color-dark);
+    }
+    .section-break {
+      width: 48px;
+      height: 3px;
+      background: var(--color-primary);
+      border: none;
+      margin: 40px 0;
+      border-radius: 2px;
+    }
+    .preview-h2 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-dark);
+      margin-bottom: 16px;
+    }
+
+    /* Sample outline */
+    .outline-example {
       background: var(--color-bg);
       border-radius: var(--radius-lg);
-      padding: 28px;
-      margin-bottom: 20px;
+      padding: 32px;
+      margin: 24px 0;
       box-shadow: 0 2px 12px rgba(0,0,0,0.04);
     }
-    .exercise-step {
+    .outline-example-label {
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.15em;
       color: var(--color-primary);
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
-    .exercise-title {
+    .outline-example-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-dark);
+      margin-bottom: 16px;
+    }
+    .outline-list {
+      list-style: none;
+      counter-reset: outline-counter;
+    }
+    .outline-list li {
+      counter-increment: outline-counter;
+      padding: 8px 0;
+      font-size: 15px;
+      color: var(--color-text);
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .outline-list li:last-child {
+      border-bottom: none;
+    }
+    .outline-list li::before {
+      content: counter(outline-counter);
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--color-primary);
+      min-width: 20px;
+    }
+    .outline-list .sub {
+      padding-left: 32px;
+      color: var(--color-text-secondary);
+      font-size: 14px;
+    }
+    .outline-list .sub::before {
+      content: '—';
+      color: var(--color-text-muted);
+    }
+    .outline-time {
+      text-align: center;
+      font-size: 14px;
+      color: var(--color-primary);
+      font-weight: 600;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    /* Blurred teaser */
+    .blurred-section {
+      position: relative;
+      margin: 32px 0;
+    }
+    .blurred-content {
+      filter: blur(6px);
+      user-select: none;
+      pointer-events: none;
+    }
+    .blurred-content .outline-example {
+      opacity: 0.7;
+    }
+    .blur-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+    .blur-overlay-card {
+      background: var(--color-bg);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      text-align: center;
+      max-width: 380px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+    .blur-overlay-title {
+      font-family: var(--font-display);
       font-size: 20px;
       font-weight: 700;
       color: var(--color-dark);
       margin-bottom: 8px;
     }
-    .exercise-desc {
-      font-size: 15px;
-      color: var(--color-text-secondary);
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-    .exercise-timer-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 10px 20px;
+    .blur-overlay-text {
       font-size: 14px;
-      font-weight: 600;
-      font-family: var(--font-body);
-      background: var(--color-primary);
-      color: #fff;
-      border: none;
-      border-radius: var(--radius-md);
-      cursor: pointer;
-      transition: background 0.15s ease;
+      color: var(--color-text-secondary);
+      margin-bottom: 16px;
+      line-height: 1.5;
     }
-    .exercise-timer-btn:hover {
-      background: var(--color-primary-dark);
-    }
-    .exercise-timer-display {
-      font-family: var(--font-display);
-      font-size: 32px;
-      font-weight: 800;
-      color: var(--color-primary);
-      margin-top: 12px;
-      display: none;
-    }
-    .exercise-timer-display.active {
-      display: block;
-    }
+
+    /* CTA */
     .upgrade-card {
       background: var(--color-dark);
       color: var(--color-warm);
       border-radius: var(--radius-lg);
       padding: 40px 28px;
       text-align: center;
-      margin-top: 40px;
+      margin-top: 48px;
     }
     .upgrade-card-title {
       font-family: var(--font-display);
@@ -141,6 +216,9 @@
       color: rgba(240,230,211,0.7);
       margin-bottom: 24px;
       line-height: 1.6;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .upgrade-card-btn {
       display: inline-block;
@@ -151,116 +229,150 @@
       color: #fff;
       border-radius: var(--radius-md);
       text-decoration: none;
-      transition: background 0.15s ease;
+      transition: background 0.15s ease, transform 0.15s ease;
     }
     .upgrade-card-btn:hover {
       background: var(--color-primary-light);
       text-decoration: none;
+      transform: translateY(-1px);
+    }
+    .upgrade-card-note {
+      font-size: 12px;
+      color: rgba(240,230,211,0.4);
+      margin-top: 12px;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .preview-content {
+        padding: 32px 20px 60px;
+      }
+      .outline-example {
+        padding: 24px 20px;
+      }
     }
   </style>
 </head>
 <body>
   <nav class="preview-nav">
     <a href="/" class="preview-nav-brand">Nonfiction Blueprint</a>
-    <a href="/login.html" class="preview-nav-cta">Sign In</a>
+    <a href="#get-started" class="preview-nav-cta">Get Full Access</a>
   </nav>
 
   <div class="preview-content">
-    <div class="preview-badge">Free Preview — Day 1</div>
-    <h1 class="preview-title">Foundation: Brain Dump First</h1>
-    <p class="preview-subtitle">
-      This is the first day of the 21-day Nonfiction Blueprint system. You'll go from scattered ideas to a complete book outline in one sitting. The key: dump everything out of your head before trying to organize it.
+    <div class="preview-badge">Free Preview</div>
+    <h1 class="preview-title">The #1 Reason Your Nonfiction Book Isn't Written Yet</h1>
+
+    <p class="preview-text">
+      It's not writer's block. It's not lack of time. It's not that you need a better tool or a writing degree.
+    </p>
+    <p class="preview-text">
+      <strong>It's analysis paralysis.</strong>
+    </p>
+    <p class="preview-text">
+      You keep trying to figure out the perfect structure before writing a single word. You start an outline, second-guess it, start over. You research tools. You read books about writing books. You reorganize your notes for the fifth time.
+    </p>
+    <p class="preview-text">
+      Meanwhile, the book stays in your head. Months pass. Years pass.
+    </p>
+    <p class="preview-text">
+      The fix is counterintuitive: <strong>stop organizing and start dumping.</strong>
     </p>
 
-    <!-- Exercise 1: Affirmation -->
-    <div class="exercise-card">
-      <div class="exercise-step">Step 1</div>
-      <h2 class="exercise-title">Say Your Affirmation</h2>
-      <p class="exercise-desc">
-        Set a timer for 1 minute. Say aloud: "I am now a writer. I am an author. I am focused on the tasks I have to do today, and I eliminate all excuses and distractions."
-      </p>
-      <button class="exercise-timer-btn" id="affirmBtn" onclick="startTimer('affirm', 60)">
-        &#9201; Start 1-Minute Timer
-      </button>
-      <div class="exercise-timer-display" id="affirmDisplay"></div>
+    <hr class="section-break">
+
+    <h2 class="preview-h2">The Brain-Dump-First Method</h2>
+    <p class="preview-text">
+      Most book-writing advice tells you to start with your title, define your audience, pick a structure, create a detailed outline — and THEN write.
+    </p>
+    <p class="preview-text">
+      That's backwards. That's why you're stuck.
+    </p>
+    <p class="preview-text">
+      The Nonfiction Blueprint flips the order. You start by getting everything out of your head in one fast, timed session. No organizing. No filtering. No judgment. Just a raw dump of everything you know about your topic.
+    </p>
+    <p class="preview-text">
+      <strong>Then</strong> you organize it. <strong>Then</strong> you name it. <strong>Then</strong> you write it. The structure reveals itself because the content already exists on paper.
+    </p>
+
+    <hr class="section-break">
+
+    <h2 class="preview-h2">What Day 1 Produces</h2>
+    <p class="preview-text">
+      Here's a real example. Someone with expertise in personal finance sat down with the Nonfiction Blueprint. After Day 1, they had this:
+    </p>
+
+    <!-- Sample completed outline — shows the RESULT, not the process -->
+    <div class="outline-example">
+      <div class="outline-example-label">Sample Day 1 Result</div>
+      <div class="outline-example-title">"Money Without the Mess: Personal Finance for People Who Hate Budgets"</div>
+      <ol class="outline-list">
+        <li>Why most budgets fail (and what to do instead)</li>
+        <li>The 3-account system</li>
+        <li class="sub">Spending account</li>
+        <li class="sub">Bills account</li>
+        <li class="sub">Savings account</li>
+        <li>Automating your money so you stop thinking about it</li>
+        <li>Debt payoff without deprivation</li>
+        <li>Emergency funds: how much is actually enough</li>
+        <li>Investing for people who don't want to learn investing</li>
+        <li>The "pay yourself first" habit</li>
+        <li>Insurance you actually need vs. insurance that's a waste</li>
+        <li>Teaching your kids about money without being boring</li>
+        <li>Retirement planning when you started late</li>
+      </ol>
+      <div class="outline-time">
+        Brain dump to this outline: under 1 hour
+      </div>
     </div>
 
-    <!-- Exercise 2: Brain Dump -->
-    <div class="exercise-card">
-      <div class="exercise-step">Step 2 — The Most Important Step</div>
-      <h2 class="exercise-title">Brain Dump Everything</h2>
-      <p class="exercise-desc">
-        Get paper and pen. As quickly as possible, from memory, list everything a person needs to know about the subject of your book. Single words or phrases ONLY. Do NOT write sentences. Do NOT worry about order. Just write.
-      </p>
-      <button class="exercise-timer-btn" id="dumpBtn" onclick="startTimer('dump', 600)">
-        &#9201; Start 10-Minute Timer
-      </button>
-      <div class="exercise-timer-display" id="dumpDisplay"></div>
+    <p class="preview-text">
+      A working title. A clear audience. 10 chapters with subtopics. All from one session — not weeks of planning.
+    </p>
+    <p class="preview-text">
+      That's what Day 1 of the Nonfiction Blueprint does. And there are 20 more days after it.
+    </p>
+
+    <!-- Blurred teaser of Days 2-21 -->
+    <div class="blurred-section">
+      <div class="blurred-content">
+        <div class="outline-example">
+          <div class="outline-example-label">Days 2-21 System</div>
+          <ol class="outline-list">
+            <li>Elaborate on topics and write introduction</li>
+            <li>Write Chapter 1 using fill-in-the-blanks method</li>
+            <li>Write Chapter 2 with timed exercises</li>
+            <li>Write Chapter 3 starting with what interests you</li>
+            <li>Continue chapters with daily affirmations</li>
+            <li>Research day — fact-check all marked subtopics</li>
+            <li>First draft on pink paper — complete read-through</li>
+            <li>Clean up days — revise, check purpose, polish</li>
+            <li>Final day — yellow paper review, spell-check, done</li>
+          </ol>
+        </div>
+      </div>
+      <div class="blur-overlay">
+        <div class="blur-overlay-card">
+          <div class="blur-overlay-title">Days 2-21: The Full System</div>
+          <p class="blur-overlay-text">
+            The step-by-step process, timed exercises, writing workspace, and daily guidance that takes you from outline to finished manuscript.
+          </p>
+          <a href="#get-started" class="preview-nav-cta" style="display: inline-block; padding: 12px 24px;">Unlock All 21 Days</a>
+        </div>
+      </div>
     </div>
 
-    <!-- Exercise 3: Organize -->
-    <div class="exercise-card">
-      <div class="exercise-step">Step 3</div>
-      <h2 class="exercise-title">Organize Into Chapters</h2>
-      <p class="exercise-desc">
-        Number your items in a logical order. Each item becomes a chapter title. You just created your table of contents. Many items may become sub-chapters nested inside other chapters.
-      </p>
-    </div>
-
-    <!-- Teaser for remaining steps -->
-    <div class="exercise-card" style="opacity: 0.5;">
-      <div class="exercise-step">Steps 4-7</div>
-      <h2 class="exercise-title">Title, Purpose, Audience, Chapter Outlines...</h2>
-      <p class="exercise-desc">
-        The remaining Day 1 steps and all 20 additional days are available with full access.
-      </p>
-    </div>
-
-    <!-- Upgrade CTA -->
-    <div class="upgrade-card">
-      <h2 class="upgrade-card-title">Ready for the full 21 days?</h2>
+    <!-- Final CTA -->
+    <div class="upgrade-card" id="get-started">
+      <h2 class="upgrade-card-title">Ready to write your book?</h2>
       <p class="upgrade-card-text">
-        You just experienced Day 1. The complete system guides you through 20 more days of writing, research, editing, and finalizing your manuscript.
+        The complete 21-day system: brain-dump-first method, timed writing exercises, daily affirmations, built-in workspace, progress tracking, and manuscript export.
       </p>
-      <a href="/login.html" class="upgrade-card-btn">Unlock Full Access — $29 &rarr;</a>
+      <a href="/login.html" class="upgrade-card-btn">Get Full Access — $29 &rarr;</a>
+      <p class="upgrade-card-note">
+        50% off launch price. Increases to $58 after launch period.
+      </p>
     </div>
   </div>
-
-  <script>
-    let timers = {};
-
-    function startTimer(id, totalSeconds) {
-      if (timers[id]) clearInterval(timers[id]);
-
-      let seconds = totalSeconds;
-      const display = document.getElementById(id + 'Display');
-      const btn = document.getElementById(id + 'Btn');
-
-      display.classList.add('active');
-      btn.disabled = true;
-      btn.style.opacity = '0.5';
-
-      function update() {
-        const m = Math.floor(seconds / 60);
-        const s = seconds % 60;
-        display.textContent = `${m}:${s.toString().padStart(2, '0')}`;
-      }
-      update();
-
-      timers[id] = setInterval(() => {
-        seconds--;
-        update();
-        if (seconds <= 0) {
-          clearInterval(timers[id]);
-          display.textContent = 'Complete!';
-          setTimeout(() => {
-            display.classList.remove('active');
-            btn.disabled = false;
-            btn.style.opacity = '1';
-          }, 3000);
-        }
-      }, 1000);
-    }
-  </script>
 </body>
 </html>
