@@ -280,6 +280,28 @@
       margin-left: auto;
       margin-right: auto;
     }
+    .guide-cta-pricing {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .guide-price-old {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 800;
+      color: rgba(240,230,211,0.35);
+      text-decoration: line-through;
+      text-decoration-color: #d9534f;
+      text-decoration-thickness: 3px;
+    }
+    .guide-price-now {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--color-warm);
+    }
     .guide-cta-subtext {
       font-size: 14px;
       color: rgba(240,230,211,0.5);
@@ -491,9 +513,13 @@
       <p class="guide-cta-subtext">
         You already know the brain-dump concept works. The full system gives you the other 20 days.
       </p>
-      <a href="/login.html" class="guide-cta-btn">Get Full Access — $29 &rarr;</a>
+      <div class="guide-cta-pricing">
+        <span class="guide-price-old">$58</span>
+        <span class="guide-price-now">$29</span>
+      </div>
+      <a href="/login.html" class="guide-cta-btn">Get Full Access &rarr;</a>
       <p class="guide-cta-note">
-        50% off launch price. Increases to $58 after launch period.
+        50% off launch price. Price increases to $58 after launch period.
       </p>
     </div>
   </div>
