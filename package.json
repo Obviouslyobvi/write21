@@ -1,0 +1,17 @@
+{
+  "name": "nonfiction-blueprint",
+  "version": "1.0.0",
+  "description": "Nonfiction Blueprint - Write Your Book in 21 Days",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler pages dev public --port 8788",
+    "deploy": "wrangler pages deploy public"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "stripe": "^17.0.0"
+  },
+  "devDependencies": {
+    "wrangler": "^3.80.0"
+  }
+}

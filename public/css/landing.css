@@ -1,0 +1,594 @@
+/* ===================================
+   LANDING PAGE STYLES
+   Nonfiction Blueprint
+   =================================== */
+
+/* Reset & Base */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  color: #1a1a2e;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===================================
+   ANIMATIONS
+   =================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.rotating-headline {
+  transition: opacity 0.3s ease;
+}
+.rotating-headline.fade-out {
+  opacity: 0;
+}
+
+/* ===================================
+   HERO SECTION
+   =================================== */
+.hero-section {
+  min-height: 90vh;
+  background: #f5ebe0;
+  padding: 60px 24px 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-container {
+  max-width: 720px;
+  text-align: center;
+}
+.launch-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: #8b7355;
+  margin-bottom: 28px;
+  padding: 8px 20px;
+  border: 1px solid #d4c0a0;
+  border-radius: 100px;
+}
+.hero-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(38px, 6vw, 64px);
+  font-weight: 800;
+  color: #1a1a2e;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin: 0 0 24px;
+  min-height: 160px;
+}
+.hero-subtitle {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 19px;
+  line-height: 1.7;
+  color: #666;
+  max-width: 540px;
+  margin: 0 auto 40px;
+  min-height: 80px;
+}
+.hero-cta {
+  display: flex;
+  justify-content: center;
+}
+.email-form {
+  display: flex;
+  gap: 12px;
+  max-width: 480px;
+  width: 100%;
+}
+.email-input {
+  flex: 1;
+  padding: 16px 20px;
+  font-size: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  color: #1a1a2e;
+  outline: none;
+  transition: border-color 0.2s ease;
+  font-family: inherit;
+}
+.email-input:focus {
+  border-color: #8b7355;
+}
+.cta-button {
+  padding: 16px 32px;
+  font-size: 15px;
+  font-weight: 700;
+  background: #8b7355;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+  white-space: nowrap;
+  font-family: inherit;
+}
+.cta-button:hover {
+  background: #7a6348;
+  transform: translateY(-1px);
+}
+.success-message {
+  padding: 24px 32px;
+  background: rgba(26,26,46,0.05);
+  border-radius: 12px;
+  text-align: center;
+  max-width: 480px;
+}
+.success-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+  color: #8b7355;
+}
+.success-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 4px;
+}
+.success-text {
+  font-size: 14px;
+  color: #666;
+}
+.price-note {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 14px;
+}
+
+/* ===================================
+   PAIN SECTION
+   =================================== */
+.pain-section {
+  padding: 100px 24px;
+  background: #fff;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.section-container {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.section-container-wide {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #8b7355;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.section-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 800;
+  color: #1a1a2e;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 48px;
+}
+.pain-grid {
+  display: grid;
+  gap: 32px;
+}
+.pain-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.pain-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+.pain-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+.pain-text {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+.insight-box {
+  margin-top: 48px;
+  padding: 24px;
+  background: #f8f4ee;
+  border-radius: 12px;
+  text-align: center;
+}
+.insight-text {
+  font-size: 15px;
+  color: #1a1a2e;
+  line-height: 1.6;
+}
+
+/* ===================================
+   HOW IT WORKS
+   =================================== */
+.how-section {
+  padding: 100px 24px;
+  background: #1a1a2e;
+  color: #f0e6d3;
+}
+.section-label-light {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #8b7355;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.section-heading-light {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 64px;
+  color: #f0e6d3;
+}
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+.step-number {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 48px;
+  font-weight: 800;
+  color: rgba(240,230,211,0.15);
+  margin-bottom: 12px;
+}
+.step-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #f0e6d3;
+}
+.step-text {
+  font-size: 15px;
+  color: rgba(240,230,211,0.7);
+  line-height: 1.6;
+}
+
+/* ===================================
+   STATS BAR
+   =================================== */
+.stats-section {
+  padding: 60px 24px;
+  background: #8b7355;
+  color: #fff;
+}
+.stats-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  text-align: center;
+}
+.stat-number {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.stat-label {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* ===================================
+   FEATURES / WHAT YOU GET
+   =================================== */
+.features-section {
+  padding: 100px 24px;
+  background: #fff;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  margin-top: 8px;
+}
+.feature-card {
+  padding: 28px;
+  background: #f8f4ee;
+  border-radius: 12px;
+}
+.feature-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 8px;
+}
+.feature-text {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ===================================
+   THE 4 PHASES
+   =================================== */
+.phases-section {
+  padding: 100px 24px;
+  background: #f5ebe0;
+}
+.phases-list {
+  display: grid;
+  gap: 24px;
+}
+.phase-card {
+  padding: 32px;
+  background: #fff;
+  border-radius: 12px;
+  border-left: 4px solid #8b7355;
+}
+.phase-day {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #8b7355;
+  margin-bottom: 8px;
+}
+.phase-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 12px;
+}
+.phase-text {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ===================================
+   PRICING
+   =================================== */
+.pricing-section {
+  padding: 100px 24px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+.pricing-container {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+.pricing-card {
+  padding: 40px;
+  background: #f5ebe0;
+  border-radius: 16px;
+  border: 2px solid #e8dfd2;
+}
+.pricing-prices {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.price-old {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 56px;
+  font-weight: 800;
+  color: #999;
+  text-decoration: line-through;
+  text-decoration-color: #d9534f;
+  text-decoration-thickness: 3px;
+}
+.price-current {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 56px;
+  font-weight: 800;
+  color: #1a1a2e;
+}
+.price-label {
+  font-size: 16px;
+  color: #8b7355;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.pricing-features {
+  padding: 16px 0;
+  border-top: 1px solid #e8dfd2;
+  border-bottom: 1px solid #e8dfd2;
+  margin: 20px 0;
+  text-align: left;
+}
+.pricing-feature {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+.pricing-feature:last-child {
+  margin-bottom: 0;
+}
+.feature-check {
+  color: #8b7355;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.buy-button {
+  display: block;
+  width: 100%;
+  padding: 18px;
+  background: #1a1a2e;
+  color: #f0e6d3;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 10px;
+  text-decoration: none;
+  margin-top: 24px;
+  transition: transform 0.15s ease, background 0.2s ease;
+  text-align: center;
+  font-family: inherit;
+}
+.buy-button:hover {
+  transform: translateY(-2px);
+  background: #2a2a3e;
+}
+.pricing-note {
+  font-size: 12px;
+  color: #999;
+  margin-top: 16px;
+}
+
+/* ===================================
+   FAQ
+   =================================== */
+.faq-section {
+  padding: 100px 24px;
+  background: #f5ebe0;
+}
+.faq-list {
+  display: grid;
+  gap: 12px;
+}
+.faq-item {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.faq-question {
+  padding: 20px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a2e;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+.faq-question::after {
+  content: '+';
+  font-size: 24px;
+  font-weight: 300;
+  color: #8b7355;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+details[open] .faq-question::after {
+  transform: rotate(45deg);
+}
+.faq-answer {
+  padding: 0 24px 20px;
+  font-size: 15px;
+  color: #666;
+  line-height: 1.7;
+}
+
+/* ===================================
+   FOOTER
+   =================================== */
+.footer {
+  padding: 32px 24px;
+  background: #141425;
+  text-align: center;
+}
+.footer-text {
+  font-size: 12px;
+  color: rgba(240,230,211,0.3);
+}
+
+/* ===================================
+   MOBILE RESPONSIVE
+   =================================== */
+@media (max-width: 640px) {
+  .hero-section {
+    padding: 40px 20px 60px;
+    min-height: auto;
+  }
+  .hero-title {
+    min-height: 120px;
+  }
+  .hero-subtitle {
+    font-size: 16px;
+    min-height: 60px;
+  }
+  .email-form {
+    flex-direction: column;
+  }
+  .cta-button {
+    width: 100%;
+    padding: 16px;
+  }
+  .pain-section,
+  .how-section,
+  .features-section,
+  .phases-section,
+  .pricing-section,
+  .faq-section {
+    padding: 60px 20px;
+  }
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .stat-number {
+    font-size: 32px;
+  }
+  .pricing-card {
+    padding: 28px 20px;
+  }
+  .price-old,
+  .price-current {
+    font-size: 42px;
+  }
+  .phase-card {
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    min-height: 100px;
+  }
+  .section-heading {
+    font-size: 26px;
+    margin-bottom: 32px;
+  }
+  .section-heading-light {
+    font-size: 26px;
+    margin-bottom: 40px;
+  }
+}

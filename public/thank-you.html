@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Check Your Email - Nonfiction Blueprint</title>
+  <meta name="robots" content="noindex">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
+  <style>
+    body {
+      background: var(--color-cream);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .thankyou-container {
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+    }
+    .thankyou-icon {
+      font-size: 64px;
+      margin-bottom: 24px;
+    }
+    .thankyou-title {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--color-dark);
+      margin-bottom: 16px;
+    }
+    .thankyou-text {
+      font-size: 17px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .thankyou-steps {
+      text-align: left;
+      background: var(--color-bg);
+      padding: 28px;
+      border-radius: var(--radius-lg);
+      margin-bottom: 32px;
+    }
+    .thankyou-step {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .thankyou-step:last-child {
+      margin-bottom: 0;
+    }
+    .step-num {
+      width: 28px;
+      height: 28px;
+      background: var(--color-primary);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .step-text {
+      font-size: 15px;
+      color: var(--color-text);
+      line-height: 1.5;
+    }
+    .thankyou-cta {
+      display: inline-block;
+      padding: 16px 32px;
+      font-size: 15px;
+      font-weight: 700;
+      background: var(--color-dark);
+      color: var(--color-warm);
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .thankyou-cta:hover {
+      background: var(--color-dark-lighter);
+      text-decoration: none;
+    }
+    .back-link {
+      margin-top: 24px;
+      font-size: 13px;
+    }
+    .back-link a {
+      color: var(--color-text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="thankyou-container">
+    <div class="thankyou-icon">&#9993;</div>
+    <h1 class="thankyou-title">Check your email</h1>
+    <p class="thankyou-text">
+      We just sent you the Day 1 Blueprint — your free preview of the Nonfiction Blueprint system.
+    </p>
+
+    <div class="thankyou-steps">
+      <div class="thankyou-step">
+        <div class="step-num">1</div>
+        <div class="step-text">Check your inbox (and spam folder) for an email from Nonfiction Blueprint</div>
+      </div>
+      <div class="thankyou-step">
+        <div class="step-num">2</div>
+        <div class="step-text">Open the email and follow the Day 1 Brain Dump exercise</div>
+      </div>
+      <div class="thankyou-step">
+        <div class="step-num">3</div>
+        <div class="step-text">When you're ready for the full 21-day system, unlock full access for $29</div>
+      </div>
+    </div>
+
+    <a href="/login.html" class="thankyou-cta">Create Your Account &rarr;</a>
+
+    <div class="back-link">
+      <a href="/">&larr; Back to Nonfiction Blueprint</a>
+    </div>
+  </div>
+</body>
+</html>
