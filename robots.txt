@@ -5,4 +5,5 @@ Disallow: /login.html
 Disallow: /success.html
 Disallow: /thank-you.html
 Disallow: /preview.html
+Disallow: /lead-magnet-download.html
 Sitemap: https://nonfictionblueprint.com/sitemap.xml

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The #1 Reason Your Nonfiction Book Isn't Written Yet - Free Guide | Nonfiction Blueprint</title>
+  <meta name="robots" content="noindex">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/global.css">
+  <style>
+    body {
+      background: var(--color-cream);
+    }
+
+    /* Top bar */
+    .dl-nav {
+      background: var(--color-dark);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .dl-nav-brand {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-warm);
+      text-decoration: none;
+    }
+    .dl-nav-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .dl-nav-print {
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      background: transparent;
+      color: rgba(240,230,211,0.7);
+      border: 1px solid rgba(240,230,211,0.2);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-family: var(--font-body);
+      transition: all 0.15s;
+    }
+    .dl-nav-print:hover {
+      color: var(--color-warm);
+      border-color: rgba(240,230,211,0.4);
+    }
+    .dl-nav-cta {
+      padding: 8px 20px;
+      font-size: 13px;
+      font-weight: 700;
+      background: var(--color-primary);
+      color: #fff;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .dl-nav-cta:hover {
+      background: var(--color-primary-dark);
+      text-decoration: none;
+    }
+
+    /* Guide container */
+    .guide {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* Cover section */
+    .guide-cover {
+      text-align: center;
+      padding-bottom: 40px;
+      margin-bottom: 40px;
+      border-bottom: 3px solid var(--color-primary);
+    }
+    .guide-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-primary);
+      background: rgba(139,115,85,0.1);
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .guide-cover-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 800;
+      color: var(--color-dark);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .guide-cover-subtitle {
+      font-size: 18px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+    .guide-cover-by {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      margin-top: 20px;
+    }
+
+    /* Body text */
+    .guide p {
+      font-size: 17px;
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .guide p strong {
+      color: var(--color-dark);
+    }
+
+    /* Section headings */
+    .guide-h2 {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--color-dark);
+      margin-top: 48px;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .guide-h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-dark);
+      margin-top: 32px;
+      margin-bottom: 14px;
+    }
+
+    /* Divider */
+    .guide-divider {
+      width: 48px;
+      height: 3px;
+      background: var(--color-primary);
+      border: none;
+      margin: 44px 0;
+      border-radius: 2px;
+    }
+
+    /* Callout box */
+    .guide-callout {
+      background: var(--color-bg);
+      border-left: 4px solid var(--color-primary);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 24px;
+      margin: 28px 0;
+    }
+    .guide-callout p {
+      margin-bottom: 0;
+      font-size: 16px;
+      color: var(--color-dark);
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    /* Numbered list */
+    .guide-steps {
+      list-style: none;
+      counter-reset: guide-steps;
+      margin: 24px 0;
+    }
+    .guide-steps li {
+      counter-increment: guide-steps;
+      padding: 14px 0;
+      font-size: 16px;
+      color: var(--color-text);
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      line-height: 1.6;
+    }
+    .guide-steps li:last-child {
+      border-bottom: none;
+    }
+    .guide-steps li::before {
+      content: counter(guide-steps);
+      font-weight: 700;
+      font-size: 13px;
+      color: #fff;
+      background: var(--color-primary);
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Sample outline */
+    .guide-sample {
+      background: var(--color-bg);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin: 28px 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .guide-sample-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-primary);
+      margin-bottom: 12px;
+    }
+    .guide-sample-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-dark);
+      margin-bottom: 16px;
+    }
+    .guide-sample-list {
+      list-style: none;
+      counter-reset: sample-counter;
+    }
+    .guide-sample-list li {
+      counter-increment: sample-counter;
+      padding: 8px 0;
+      font-size: 15px;
+      color: var(--color-text);
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .guide-sample-list li:last-child {
+      border-bottom: none;
+    }
+    .guide-sample-list li::before {
+      content: counter(sample-counter);
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--color-primary);
+      min-width: 20px;
+    }
+    .guide-sample-note {
+      font-size: 14px;
+      color: var(--color-primary);
+      font-weight: 600;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+    }
+
+    /* CTA section */
+    .guide-cta {
+      background: var(--color-dark);
+      color: var(--color-warm);
+      border-radius: var(--radius-lg);
+      padding: 40px 28px;
+      text-align: center;
+      margin-top: 48px;
+    }
+    .guide-cta-title {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .guide-cta-text {
+      font-size: 16px;
+      color: rgba(240,230,211,0.7);
+      margin-bottom: 8px;
+      line-height: 1.6;
+      max-width: 460px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .guide-cta-subtext {
+      font-size: 14px;
+      color: rgba(240,230,211,0.5);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    .guide-cta-btn {
+      display: inline-block;
+      padding: 16px 32px;
+      font-size: 16px;
+      font-weight: 700;
+      background: var(--color-primary);
+      color: #fff;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+    .guide-cta-btn:hover {
+      background: var(--color-primary-light);
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+    .guide-cta-note {
+      font-size: 12px;
+      color: rgba(240,230,211,0.35);
+      margin-top: 12px;
+    }
+
+    /* Print styles */
+    @media print {
+      .dl-nav, .guide-cta { display: none; }
+      body { background: #fff; }
+      .guide { padding: 0; max-width: none; }
+      .guide-cover { border-bottom-color: #333; }
+      .guide p, .guide-steps li, .guide-sample-list li { font-size: 12pt; }
+      .guide-h2 { font-size: 18pt; }
+      .guide-h3 { font-size: 14pt; }
+      .guide-cover-title { font-size: 24pt; }
+    }
+
+    @media (max-width: 640px) {
+      .guide {
+        padding: 32px 20px 60px;
+      }
+      .guide-sample {
+        padding: 24px 20px;
+      }
+      .guide-cta {
+        padding: 32px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="dl-nav">
+    <a href="/" class="dl-nav-brand">Nonfiction Blueprint</a>
+    <div class="dl-nav-actions">
+      <button class="dl-nav-print" onclick="window.print()">Print / Save PDF</button>
+      <a href="/login.html" class="dl-nav-cta">Get Full 21-Day System</a>
+    </div>
+  </nav>
+
+  <div class="guide">
+    <!-- Cover -->
+    <div class="guide-cover">
+      <div class="guide-label">Free Guide from Nonfiction Blueprint</div>
+      <h1 class="guide-cover-title">The #1 Reason Your Nonfiction Book Isn't Written Yet</h1>
+      <p class="guide-cover-subtitle">And the 10-minute fix that changes everything</p>
+      <p class="guide-cover-by">By the team at Nonfiction Blueprint</p>
+    </div>
+
+    <!-- Section 1: The Problem -->
+    <h2 class="guide-h2">You don't have a writing problem. You have a starting problem.</h2>
+
+    <p>
+      You have the expertise. You have the ideas. You probably have notebooks full of thoughts, voice memos, saved articles, and half-finished outlines. You know enough to fill a book.
+    </p>
+    <p>
+      <strong>So why isn't it written?</strong>
+    </p>
+    <p>
+      Most aspiring nonfiction authors blame writer's block. Or lack of time. Or not having the right tool. But that's not it. The real blocker is something more subtle and more fixable:
+    </p>
+
+    <div class="guide-callout">
+      <p><strong>Analysis paralysis.</strong> You keep trying to figure out the perfect structure before writing a single word. The more you plan, the less you write. The more you organize, the further away the book feels.</p>
+    </div>
+
+    <p>
+      Sound familiar? You start an outline. It feels wrong, so you restart. You research tools — Scrivener, Notion, Google Docs, a dedicated writing app. You read books about writing books. You reorganize your notes for the fifth time.
+    </p>
+    <p>
+      Meanwhile, the book stays in your head. Months pass. Years pass. If you have started writing anything at all, it sits half-finished because you never felt confident in the structure.
+    </p>
+
+    <hr class="guide-divider">
+
+    <!-- Section 2: Why Traditional Advice Fails -->
+    <h2 class="guide-h2">Why "make an outline first" is backwards advice</h2>
+
+    <p>
+      Every book-writing course, blog post, and YouTube video tells you the same thing: start with your title, define your audience, pick a structure, create a detailed outline — and THEN start writing.
+    </p>
+    <p>
+      <strong>That's the problem. Not the solution.</strong>
+    </p>
+    <p>
+      Here's why: you can't create a good outline from a blank page. An outline is an organization tool — but you have nothing to organize yet. Your ideas are scattered across your brain, your notes, your conversations. Trying to force them into a neat structure before you've even captured them is like trying to sort a deck of cards while they're still in the box.
+    </p>
+    <p>
+      So you sit there, staring at a blank outline, trying to decide if Chapter 1 should cover this or that. You second-guess yourself. You rearrange. You start over. You plan more.
+    </p>
+    <p>
+      <strong>The paralysis is caused by analysis.</strong>
+    </p>
+
+    <hr class="guide-divider">
+
+    <!-- Section 3: The Fix -->
+    <h2 class="guide-h2">The 10-minute fix: dump first, organize second</h2>
+
+    <p>
+      The fix is counterintuitive: <strong>stop organizing and start dumping.</strong>
+    </p>
+    <p>
+      Instead of starting with structure, start with a brain dump. Get everything out of your head first — messily, imperfectly, without any order. THEN organize it.
+    </p>
+    <p>
+      Here's the process:
+    </p>
+
+    <ol class="guide-steps">
+      <li><strong>Set a 10-minute timer.</strong> This is non-negotiable. The timer creates urgency that bypasses your inner critic.</li>
+      <li><strong>Write down everything a person needs to know about your topic.</strong> Single words and phrases only. No sentences. No paragraphs. No order. Just dump.</li>
+      <li><strong>Don't stop, filter, or judge.</strong> If it comes to mind, write it down. Obvious stuff, advanced stuff, random tangents — all of it.</li>
+      <li><strong>When the timer goes off, stop.</strong> You now have raw material — the messy, complete contents of your expertise on paper.</li>
+    </ol>
+
+    <p>
+      That's it. 10 minutes. No outline. No structure. No decisions about what chapter goes where. Just a dump.
+    </p>
+    <p>
+      <strong>Now</strong> you organize. And here's the thing: organizing is easy when you have material to work with. You look at your dump and natural groupings emerge. Topics cluster together. A structure reveals itself — because the content already exists on paper.
+    </p>
+
+    <hr class="guide-divider">
+
+    <!-- Section 4: What It Produces -->
+    <h2 class="guide-h2">What one brain-dump session actually produces</h2>
+
+    <p>
+      Here's a real example. Someone with expertise in personal finance sat down and did the brain dump. After organizing the dump, they had this:
+    </p>
+
+    <div class="guide-sample">
+      <div class="guide-sample-label">Sample Brain-Dump Result</div>
+      <div class="guide-sample-title">"Money Without the Mess: Personal Finance for People Who Hate Budgets"</div>
+      <ol class="guide-sample-list">
+        <li>Why most budgets fail (and what to do instead)</li>
+        <li>The 3-account system</li>
+        <li>Automating your money so you stop thinking about it</li>
+        <li>Debt payoff without deprivation</li>
+        <li>Emergency funds: how much is actually enough</li>
+        <li>Investing for people who don't want to learn investing</li>
+        <li>The "pay yourself first" habit</li>
+        <li>Insurance you actually need vs. insurance that's a waste</li>
+        <li>Teaching your kids about money without being boring</li>
+        <li>Retirement planning when you started late</li>
+      </ol>
+      <div class="guide-sample-note">
+        From brain dump to this outline: under 1 hour
+      </div>
+    </div>
+
+    <p>
+      A working title. A clear audience (people who hate budgets). 10 chapters with clear topics. All from one session — not weeks of planning.
+    </p>
+    <p>
+      Notice what happened: the title came FROM the content, not the other way around. The structure emerged FROM the ideas. No one sat staring at a blank page trying to decide what Chapter 1 should be. The brain dump made all of that obvious.
+    </p>
+
+    <hr class="guide-divider">
+
+    <!-- Section 5: What Happens Next -->
+    <h2 class="guide-h2">So you have an outline. Now what?</h2>
+
+    <p>
+      The brain dump gets you from zero to outline in one session. That alone puts you ahead of 90% of aspiring authors who never get past the planning stage.
+    </p>
+    <p>
+      But an outline isn't a book. You still need to turn those chapter headings into actual content. You need to write, research, revise, and polish.
+    </p>
+    <p>
+      <strong>That's what the full Nonfiction Blueprint does.</strong>
+    </p>
+    <p>
+      It's a complete 21-day system that takes you from brain dump to finished manuscript. Day 1 is the brain dump you just learned about. Days 2 through 21 give you the exact step-by-step process — timed writing exercises, daily guidance, and a built-in workspace — that turns your outline into a complete book.
+    </p>
+    <p>
+      No guesswork. No "figure it out as you go." Just open Day 2, follow the instructions, write for the allotted time, and move on. 21 days later, you have a manuscript.
+    </p>
+
+    <!-- CTA -->
+    <div class="guide-cta">
+      <h2 class="guide-cta-title">Ready to go from outline to finished book?</h2>
+      <p class="guide-cta-text">
+        The complete 21-day system: brain-dump-first method, timed writing exercises, daily guidance, built-in workspace, progress tracking, and manuscript export.
+      </p>
+      <p class="guide-cta-subtext">
+        You already know the brain-dump concept works. The full system gives you the other 20 days.
+      </p>
+      <a href="/login.html" class="guide-cta-btn">Get Full Access — $29 &rarr;</a>
+      <p class="guide-cta-note">
+        50% off launch price. Increases to $58 after launch period.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // Track that user has viewed the lead magnet
+    try {
+      localStorage.setItem('nb_lead_magnet_viewed', 'true');
+    } catch(e) {}
+  </script>
+</body>
+</html>

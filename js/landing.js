@@ -68,8 +68,15 @@ document.getElementById('emailForm').addEventListener('submit', (e) => {
 
   if (email.includes('@')) {
     // TODO: Replace with Brevo API integration
-    // For now, show success message
+    // Store email temporarily so thank-you page can reference it
+    try { localStorage.setItem('nb_lead_email', email); } catch(e) {}
+
+    // Show success message briefly, then redirect to thank-you
     document.getElementById('emailForm').style.display = 'none';
     document.getElementById('successMessage').style.display = 'block';
+
+    setTimeout(function() {
+      window.location.href = '/thank-you.html';
+    }, 1500);
   }
 });
