@@ -121,6 +121,7 @@
       },
       mouseout: function (e) {
         Choropleth.resetStyle(e.target);
+        e.target.closeTooltip();
       },
       click: function () {
         drillDown(zip3, layer);
@@ -260,6 +261,7 @@
         },
         mouseout: function (e) {
           Choropleth.resetStyle(e.target);
+          e.target.closeTooltip();
         },
         click: function () {
           drillDown(zip3, layer);
