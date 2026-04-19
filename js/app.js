@@ -892,7 +892,7 @@ function showPaywall() {
     <div class="paywall">
       <div class="paywall-title">You've completed Day 1!</div>
       <p class="paywall-text">Days 2-21 of the complete Nonfiction Blueprint methodology are available with full access. Continue your journey from outline to finished manuscript.</p>
-      <div class="paywall-pricing"><span class="paywall-price-old">$58</span> <span class="paywall-price-now">$29</span></div>
+      <div class="paywall-pricing"><span class="paywall-price-old">$59</span> <span class="paywall-price-now">$29.50</span></div>
       <a href="#" class="paywall-btn" id="paywallBuyBtn">Unlock Full Access &rarr;</a>
     </div>
   `;
